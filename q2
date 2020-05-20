@@ -8,7 +8,7 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    adhoc: kitkat.q2
+    adhoc: kitkat
   name: adhocpod1
 spec:
   containers:
@@ -23,4 +23,23 @@ status: {}
    
 once created, use,
    $ kubectl create –f q2.yml
+   
+ for  kitkat.yml:
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: kitkat
+spec:
+  type: NodePort
+  selector:
+    adhoc: kitkat
+  ports:
+    - port: 80
+      targetPort: 80
+```
+command:
+```shell
+kubectl create -f kitkat.yml
+```
    
