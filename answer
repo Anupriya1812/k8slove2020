@@ -41,6 +41,38 @@ spec:
 command:
 kubectl create -f kitkat.yml
 
+###TASK _3
+
+apiVersion: v1
+kind: Pod
+metadata:
+ name: adhocpod2
+ labels:
+  name: kitkatq3
+  adhoc: kitkatq3
+spec:
+  containers:
+   - name: adhocpod2
+     image: kitkat/webapp:v1
+     command: ["/bin/sh","-c","app2']
+     ports:
+      - containerPort: 80                                                                                                                                                                                                                                                                                                                               apiVersion: v1
+kind: Service
+metadata:
+ creationTimestamp: null
+ labels:
+  app: q3svckitkat
+  name: q3svckitkat
+spec:
+ ports:
+  - name: myport
+    port: 80
+    protocol: TCP
+    targetPort: 80
+ selector:
+  run: kitkatq3                                                                                                                                                             type: NodePort
+status: {}
+
 NOTE: 
-as mentioned in the google form, i had online classes from 4 to 6:30 so i could only try one question...
-i simply wrote the answer since i did not have enough time and this was the easiest question to me so i attempted it first
+as mentioned in the google form, i had online classes from 4 to 6:30 so i could only try two question...
+i simply wrote the answer since i did not have enough time and these were the easiest question to me so i attempted it first
