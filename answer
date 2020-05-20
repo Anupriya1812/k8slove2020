@@ -1,0 +1,46 @@
+###TASK -2 
+
+To write a pod file and to then host it on k8s
+first to create a yaml file:
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    adhoc: kitkat
+  name: adhocpod1
+spec:
+  containers:
+  - image: nginx
+    name: adhocpod1
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
+   
+once created, use,
+   $ kubectl create –f q2.yml
+   
+ for  kitkat.yml:
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: kitkat
+spec:
+  type: NodePort
+  selector:
+    adhoc: kitkat
+  ports:
+    - port: 80
+      targetPort: 80
+```
+command:
+kubectl create -f kitkat.yml
+
+NOTE: 
+as mentioned in the google form, i had online classes from 4 to 6:30 so i could only try one question...
+i simply wrote the answer since i did not have enough time and this was the easiest question to me so i attempted it first
