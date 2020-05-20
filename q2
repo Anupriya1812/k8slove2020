@@ -1,0 +1,20 @@
+###TASK -2 
+
+To write a pod file and to then host it on k8s
+first to create a yaml file:
+
+apiVersion: v1
+kind: Pod
+metadata:
+   name: q2
+spec:
+   containers:
+   - name: adhocpod1
+    image: nginx
+    ports:
+containerPort: 7500
+   imagePullPolicy: Always
+   
+   once created, use,
+   $ kubectl create –f q2.yml
+   
