@@ -6,15 +6,21 @@ first to create a yaml file:
 apiVersion: v1
 kind: Pod
 metadata:
-   name: q2
+  creationTimestamp: null
+  labels:
+    adhoc: kitkat.q2
+  name: adhocpod1
 spec:
-   containers:
-   - name: adhocpod1
-    image: nginx
+  containers:
+  - image: nginx
+    name: adhocpod1
     ports:
-containerPort: 7500
-   imagePullPolicy: Always
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
    
-   once created, use,
+once created, use,
    $ kubectl create –f q2.yml
    
